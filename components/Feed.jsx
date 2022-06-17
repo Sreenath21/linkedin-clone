@@ -15,7 +15,7 @@ const Feed = ({ posts }) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data } = await axios.get("http://localhost:3000/api/posts");
+      const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/posts`);
       setRealTimePosts(data);
       setHandlePost(false);
       setUseSSRPosts(false);

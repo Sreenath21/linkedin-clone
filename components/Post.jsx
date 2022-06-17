@@ -13,6 +13,7 @@ import { modalState, modalTypeState } from "../atoms/modalAtom";
 import TimeAgo from "timeago-react";
 import { useSession } from "next-auth/react";
 import { API } from "../util/axios";
+import axios from "axios";
 
 const Post = ({ post, modalPost }) => {
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
@@ -29,7 +30,9 @@ const Post = ({ post, modalPost }) => {
     string?.length > n ? string.substring(0, n - 1) + "...see more" : string;
 
   const deletePost = async () => {
-    const response = await API.delete(`/api/posts/${post._id}`);
+    const response = await axios.delete(
+      `${NEXTAUTH_URL}/api/posts/${post._id}`
+    );
 
     setHandlePost(true);
     setModalOpen(false);
