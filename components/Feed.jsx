@@ -15,7 +15,12 @@ const Feed = ({ posts }) => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/posts`);
+      // const { data } = await axios.get(`${process.env.NEXTAUTH_URL}/api/posts`);
+
+      // Production Url
+      const { data } = await axios.get(
+        "https://linkedin-clone-chi-lime.vercel.app/api/posts"
+      );
       setRealTimePosts(data);
       setHandlePost(false);
       setUseSSRPosts(false);

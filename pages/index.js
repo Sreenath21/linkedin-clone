@@ -14,7 +14,7 @@ import axios from "axios";
 
 export default function Home({ posts, articles }) {
   // console.log(posts);
-  console.log(articles);
+  // console.log(articles);
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
   const [modalType, setModalType] = useRecoilState(modalTypeState);
   const router = useRouter();

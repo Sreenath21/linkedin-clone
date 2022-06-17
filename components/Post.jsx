@@ -30,8 +30,12 @@ const Post = ({ post, modalPost }) => {
     string?.length > n ? string.substring(0, n - 1) + "...see more" : string;
 
   const deletePost = async () => {
+    // const response = await axios.delete(
+    //   `${NEXTAUTH_URL}/api/posts/${post._id}`
+    // );
+
     const response = await axios.delete(
-      `${NEXTAUTH_URL}/api/posts/${post._id}`
+      `https://linkedin-clone-chi-lime.vercel.app/api/posts/${post._id}`
     );
 
     setHandlePost(true);
